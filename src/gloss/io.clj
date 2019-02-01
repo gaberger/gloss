@@ -85,7 +85,7 @@
            (when-not success
              (throw (Exception. "Insufficient bytes to decode frame.")))
            (when (and no-remainder? (not (zero? (bytes/byte-count remainder))))
-             (throw (Exception. "Bytes left over after decoding frame.")))
+             (throw (Exception. "Bytes left over after decoding frame." remainder)))
            val)))))
 
 (defn- decoder [frame]

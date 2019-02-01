@@ -1,0 +1,20 @@
+{:deps {;{org.clojure/clojure {:mvn/version "1.10"}
+        byte-streams {:mvn/version "0.2.4"}
+        potemkin {:mvn/version "0.4.5"}
+        manifold {:mvn/version "0.1.3"}}
+ :paths ["src", "test"]
+ ;:mvn/repos {"central" {:url "https://repo1.maven.org/maven2 fsn2/"}
+ ;            "clojars" {:url "https://clojars.org/repo"}}
+ :aliases {:repl {:extra-deps {cider/cider-nrepl {:mvn/version "0.18.0"}
+                               nrepl/nrepl       {:mvn/version "0.5.3"}}
+                  :main-opts ["-m" "nrepl.cmdline"]}
+           :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "0.4.5"}}}
+           :expect {:extra-deps {expectations {:mvn/version "RELEASE"}}}
+           :rebel {:extra-paths ["dev" "test"]
+                   :extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.3"}
+                                org.clojure/tools.namespace {:mvn/version "0.2.11"}}
+                   :main-opts  ["-m" "rebel-readline.main"]}
+           :bench {:extra-deps {criterium {:mvn/version "0.4.4"}}}
+           :test {:extra-paths   ["dev" "test"]
+                  :extra-deps {eftest {:mvn/version "0.5.2"}}
+                  :main-opts ["-e" "(require,'[eftest.runner,:refer,[find-tests,run-tests]]),(run-tests,(find-tests,\"test\"),{:report,eftest.report.pretty/report,:capture-output?,false})"]}}}
