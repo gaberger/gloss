@@ -8,4 +8,4 @@ autodoc
 .lein*
 target
 .nrepl*
-doc
+doc.cpcache
